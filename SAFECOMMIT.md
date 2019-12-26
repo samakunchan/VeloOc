@@ -1,12 +1,14 @@
-# Husky
-
-## Dépendence
-
+SAFE COMMIT
+=
+1 - Husky
+-
+Dépendance
+-
     npm install husky --save-dev
     NB: Faire attention a la version de GIT. Actuellement il faut la 2.13.3
 
-## package.json
-
+package.json
+-
     "scripts": {
       "ng": "ng",
       "start": "ng serve",
@@ -21,16 +23,16 @@
       }
     },
 
-# CommintLint
-
-## Dépendence
-
+2 - CommintLint
+-
+Dépendence
+-
     npm install -g @commitlint/cli
     npm install --save-dev @commitlint/config-conventional @commitlint/cli
     echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
 
-# commitlint.config.js
-
+commitlint.config.js
+-
     module.exports = {
     rules: {
     'body-leading-blank': [1, 'always'],
@@ -46,28 +48,28 @@
     },
     };
 
-## Convention
-
-- build
-- ci
-- chore
-- docs
-- feat
-- fix
-- perf
-- refactor
-- revert
-- style
-- test
+Convention
+-
+*   build
+*   ci
+*   chore
+*   docs
+*   feat
+*   fix
+*   perf
+*   refactor
+*   revert
+*   style
+*   test
 
 Exemple: docs: update Readme
 
-## Autres règles d'écriture
-
-- Header: Nombre de lettre compris entre 0 et 72.
-  lowCase
-- Ne surtout pas terminé par un point
-- Sauter une ligne pour écrire le reste du commit
-- Le commit ne doit jamais être vide
-- Ajouter un espace juste après le ':' de la variable de convention
-- le reste voir lien ci joint: [https://commitlint.js.org/#/reference-rules](https://commitlint.js.org/#/reference-rules)
+Autres règles d'écriture
+-
+*   Header: Nombre de lettre compris entre 0 et 72
+*     LowCase
+*   Ne surtout pas terminé par un point
+*   Sauter une ligne pour écrire le reste du commit
+*   Le commit ne doit jamais être vide
+*   Ajouter un espace juste après le ':' de la variable de convention
+*   Le reste voir lien ci joint: [https://commitlint.js.org/#/reference-rules](https://commitlint.js.org/#/reference-rules)
