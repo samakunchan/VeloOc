@@ -1,0 +1,2 @@
+# ignore stylesheets for now as this clashes with our linter
+*.md
