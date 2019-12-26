@@ -1,11 +1,13 @@
-# Husky
+# SAFE COMMIT
 
-## Dépendence
+## Husky
+
+### Dépendance
 
     npm install husky --save-dev
     NB: Faire attention a la version de GIT. Actuellement il faut la 2.13.3
 
-## package.json
+### package.json
 
     "scripts": {
       "ng": "ng",
@@ -21,15 +23,15 @@
       }
     },
 
-# CommintLint
+## CommintLint
 
-## Dépendence
+### Dépendence
 
     npm install -g @commitlint/cli
     npm install --save-dev @commitlint/config-conventional @commitlint/cli
     echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
 
-# commitlint.config.js
+## commitlint.config.js
 
     module.exports = {
     rules: {
@@ -65,7 +67,7 @@ Exemple: docs: update Readme
 ## Autres règles d'écriture
 
 - Header: Nombre de lettre compris entre 0 et 72.
-  lowCase
+- lowCase
 - Ne surtout pas terminé par un point
 - Sauter une ligne pour écrire le reste du commit
 - Le commit ne doit jamais être vide
