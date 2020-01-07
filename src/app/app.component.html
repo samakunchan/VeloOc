@@ -1,16 +1,24 @@
-<app-header></app-header>
+<app-header
+  [title]="title"
+  [adressMalt]="adressMalt"
+  [adressWebsite]="adressWebsite"
+  [github]="github"
+></app-header>
 <app-slider></app-slider>
 
 <!--Main layout-->
 <main>
+  <div class="position-relative">
+    <div id="toContainer" class="position-absolute" [ngStyle]="{ top: '-70px' }"></div>
+  </div>
   <div class="container">
     <!--Section: Main info-->
     <section class="mt-5 wow fadeIn">
       <!--Grid row-->
       <div class="row">
-        <app-map></app-map>
+        <app-map class="col-md-12"></app-map>
 
-        <app-reservation></app-reservation>
+        <app-reservation class="col-md-12 mt-4"></app-reservation>
       </div>
       <!--Grid row-->
     </section>

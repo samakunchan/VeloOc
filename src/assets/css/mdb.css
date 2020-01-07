@@ -2194,31 +2194,31 @@ a.text-light:focus {
 }
 
 .pattern-1 {
-  background: url('~assets/img/overlays/01.png') fixed;
+  background: url('src/assets/img/overlays/01.png') fixed;
 }
 
 .pattern-2 {
-  background: url('~assets/img/overlays/02.png');
+  background: url('src/assets/img/overlays/02.png');
   background-attachment: fixed;
 }
 
 .pattern-3 {
-  background: url('~assets/img/overlays/03.png');
+  background: url('src/assets/img/overlays/03.png');
   background-attachment: fixed;
 }
 
 .pattern-4 {
-  background: url('~assets/img/overlays/04.png');
+  background: url('src/assets/img/overlays/04.png');
   background-attachment: fixed;
 }
 
 .pattern-5 {
-  background: url('~assets/img/overlays/05.png');
+  background: url('src/assets/img/overlays/05.png');
   background-attachment: fixed;
 }
 
 .pattern-6 {
-  background: url('~assets/img/overlays/06.png');
+  background: url('src/assets/img/overlays/06.png');
   background-attachment: fixed;
 }
 

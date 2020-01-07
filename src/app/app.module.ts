@@ -11,6 +11,7 @@ import { ReservationComponent } from './pages/reservation/reservation.component'
 import { CanvasComponent } from './pages/canvas/canvas.component';
 import { CompteurComponent } from './pages/compteur/compteur.component';
 import { FooterComponent } from './pages/footer/footer.component';
+import { CarousselComponent } from './pages/slider/caroussel/caroussel.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FooterComponent } from './pages/footer/footer.component';
     CanvasComponent,
     CompteurComponent,
     FooterComponent,
+    CarousselComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, MDBBootstrapModule.forRoot()],
   providers: [],

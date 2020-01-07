@@ -1,9 +1,9 @@
 <!-- Navbar -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" [ngClass]="{ 'top-nav-collapse': scrolling }">
   <div class="container">
     <!-- Brand -->
-    <a class="navbar-brand" href="https://mdbootstrap.com/docs/jquery/" target="_blank">
-      <strong>MDB</strong>
+    <a class="navbar-brand" href="/">
+      <strong>{{ title | titlecase }}</strong>
     </a>
 
     <!-- Collapse -->
@@ -23,38 +23,26 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Left -->
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#"
-            >Home
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://mdbootstrap.com/docs/jquery/" target="_blank">About MDB</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://mdbootstrap.com/docs/jquery/getting-started/download/" target="_blank">Free download</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://mdbootstrap.com/education/bootstrap/" target="_blank">Free tutorials</a>
+        <li *ngFor="let menu of menus; let i = index" class="nav-item" [ngClass]="{ active: menu.id === menuSelected }">
+          <a class="nav-link" href="/" (click)="onMenuSelected($event, i)" title="{{ menu.title }}"> {{ menu.title }}</a>
         </li>
       </ul>
 
       <!-- Right -->
       <ul class="navbar-nav nav-flex-icons">
         <li class="nav-item">
-          <a href="https://www.facebook.com/mdbootstrap" class="nav-link" target="_blank">
-            <i class="fab fa-facebook-f"></i>
+          <a href="{{ adressMalt }}" class="nav-link" target="_blank">
+            <i class="fas fa-address-card"></i>
           </a>
         </li>
         <li class="nav-item">
-          <a href="https://twitter.com/MDBootstrap" class="nav-link" target="_blank">
-            <i class="fab fa-twitter"></i>
+          <a href="{{ adressWebsite }}" class="nav-link" target="_blank">
+            <i class="fab fa-dev"></i>
           </a>
         </li>
         <li class="nav-item">
-          <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="nav-link border border-light rounded" target="_blank">
-            <i class="fab fa-github mr-2"></i>MDB GitHub
+          <a href="{{ github }}" class="nav-link border border-light rounded" target="_blank">
+            <i class="fab fa-github mr-2"></i>Velooc GitHub
           </a>
         </li>
       </ul>
