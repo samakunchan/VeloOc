@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-reservation',
@@ -6,6 +6,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./reservation.component.scss'],
 })
 export class ReservationComponent implements OnInit {
+  @Input() sessionStorage$;
   @Output() menuState = new EventEmitter<string>();
   station;
   address;
@@ -15,15 +16,7 @@ export class ReservationComponent implements OnInit {
   status;
   availability;
   constructor() {}
-  ngOnInit() {
-    this.station = sessionStorage.getItem('station');
-    this.address = sessionStorage.getItem('address');
-    this.address2 = sessionStorage.getItem('address2');
-    this.availableBikes = sessionStorage.getItem('availableBikes');
-    this.status = sessionStorage.getItem('status');
-    this.availability = sessionStorage.getItem('availability');
-    this.commune = sessionStorage.getItem('commune');
-  }
+  ngOnInit() {}
   onCloseSidebar() {
     this.menuState.emit('out');
   }

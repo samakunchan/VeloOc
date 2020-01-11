@@ -40,6 +40,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
       document.getElementById('toSlide').scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else if (this.menuSelected === 1) {
       document.getElementById('toContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (this.menuSelected === 2) {
+      document.getElementById('toAbout').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
   ngOnDestroy(): void {
