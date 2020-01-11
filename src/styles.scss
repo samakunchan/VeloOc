@@ -72,7 +72,20 @@ header,
     background-color: #1c2331;
   }
 }
-
+.for-all-screen {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+.mapboxgl-popup-content {
+  position: relative;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+  padding: 15px 10px 15px 10px;
+  pointer-events: auto;
+  min-width: 300px;
+  text-align: center;
+}
 /* Footer color for sake of consistency with Navbar */
 .page-footer {
   background-color: #1c2331;

@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormulaireComponent } from './pages/reservation/formulaire/formulaire.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StepperComponent } from './pages/reservation/stepper/stepper.component';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { StepperComponent } from './pages/reservation/stepper/stepper.component'
     CarousselComponent,
     FormulaireComponent,
     StepperComponent,
+    AboutComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, MDBBootstrapModule.forRoot(), HttpClientModule, BrowserAnimationsModule, ReactiveFormsModule],
   providers: [],
