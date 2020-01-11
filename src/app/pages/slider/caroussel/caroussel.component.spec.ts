@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CarousselComponent } from './caroussel.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('CarousselComponent', () => {
   let component: CarousselComponent;
@@ -9,6 +10,7 @@ describe('CarousselComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CarousselComponent],
+      imports: [BrowserAnimationsModule],
     }).compileComponents();
   }));
 

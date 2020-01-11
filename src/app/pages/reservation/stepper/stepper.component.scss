@@ -1,0 +1,20 @@
+.stepper-horizontal li:not(:last-child):after {
+  position: relative;
+  flex: 1;
+  height: 1px;
+  margin: 0.5rem 0 0 0;
+  content: '';
+  background-color: #ffffff69;
+}
+.stepper-horizontal li:not(:first-child):before {
+  position: relative;
+  flex: 1;
+  height: 1px;
+  margin: 0.5rem 0 0 0;
+  content: '';
+  background-color: #ffffff69;
+}
+ul.stepper li a {
+  padding: 1rem;
+  text-align: center;
+}

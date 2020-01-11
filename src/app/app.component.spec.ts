@@ -9,11 +9,16 @@ import { CanvasComponent } from './pages/canvas/canvas.component';
 import { CompteurComponent } from './pages/compteur/compteur.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { CarousselComponent } from './pages/slider/caroussel/caroussel.component';
+import { FormulaireComponent } from './pages/reservation/formulaire/formulaire.component';
+import { StepperComponent } from './pages/reservation/stepper/stepper.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, ReactiveFormsModule, HttpClientModule, BrowserAnimationsModule],
       declarations: [
         AppComponent,
         HeaderComponent,
@@ -24,6 +29,8 @@ describe('AppComponent', () => {
         CompteurComponent,
         FooterComponent,
         CarousselComponent,
+        FormulaireComponent,
+        StepperComponent,
       ],
     }).compileComponents();
   }));

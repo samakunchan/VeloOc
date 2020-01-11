@@ -27,11 +27,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.onScroll();
   }
   getMenuList() {
-    return this.menuSubscription = this.menuService.menuSubject.subscribe((menu: Menu[]) => this.menus = menu);
+    return (this.menuSubscription = this.menuService.menuSubject.subscribe((menu: Menu[]) => (this.menus = menu)));
   }
   @HostListener('window:scroll', ['$event'])
   onScroll() {
-    return this.scrolling = window.scrollY >= 50;
+    return (this.scrolling = window.scrollY >= 50);
   }
   onMenuSelected(event, index: number) {
     event.preventDefault();

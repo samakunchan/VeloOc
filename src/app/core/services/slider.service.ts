@@ -14,8 +14,7 @@ export class SliderService {
         url: 'assets/img/slides/velo1.jpg',
         header: 'Application Velooc',
         subheader: 'Reservation de vélo',
-        paragraph:
-          'Abandonnez votre voiture et ballader vous à vélo.',
+        paragraph: 'Abandonnez votre voiture et ballader vous à vélo.',
         link: 'Commencer la réservation',
       },
       {

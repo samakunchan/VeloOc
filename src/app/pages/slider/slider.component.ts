@@ -25,7 +25,7 @@ export class SliderComponent implements OnInit {
       if (this.caroussel >= this.images.length) {
         this.caroussel = 0;
       }
-    }, 30000);
+    }, 10000);
   }
   @HostListener('window:keydown', ['$event'])
   keyDownEvent(event) {
@@ -53,6 +53,6 @@ export class SliderComponent implements OnInit {
     }
   }
   onSelectSlider(index: number) {
-    return this.caroussel = index;
+    return (this.caroussel = index);
   }
 }

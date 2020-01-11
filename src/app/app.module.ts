@@ -12,6 +12,11 @@ import { CanvasComponent } from './pages/canvas/canvas.component';
 import { CompteurComponent } from './pages/compteur/compteur.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { CarousselComponent } from './pages/slider/caroussel/caroussel.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormulaireComponent } from './pages/reservation/formulaire/formulaire.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { StepperComponent } from './pages/reservation/stepper/stepper.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +29,10 @@ import { CarousselComponent } from './pages/slider/caroussel/caroussel.component
     CompteurComponent,
     FooterComponent,
     CarousselComponent,
+    FormulaireComponent,
+    StepperComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, MDBBootstrapModule.forRoot()],
+  imports: [BrowserModule, AppRoutingModule, MDBBootstrapModule.forRoot(), HttpClientModule, BrowserAnimationsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

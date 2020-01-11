@@ -3,10 +3,9 @@ import { Menu } from '../model/menu.model';
 import { Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MenuService {
-
   menuSubject = new Subject<Menu[]>();
   private menus: Menu[] = [];
   constructor() {

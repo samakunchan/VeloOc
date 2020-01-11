@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SliderComponent } from './slider.component';
 import { CarousselComponent } from './caroussel/caroussel.component';
 import { SliderService } from '../../core/services/slider.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('SliderComponent', () => {
   let component: SliderComponent;
@@ -11,7 +12,8 @@ describe('SliderComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SliderComponent, CarousselComponent],
-      providers: [SliderService]
+      imports: [BrowserAnimationsModule],
+      providers: [SliderService],
     }).compileComponents();
   }));
 
@@ -32,17 +34,5 @@ describe('SliderComponent', () => {
     spyOn(component, 'keyDownEvent');
     window.dispatchEvent(new Event('keydown'));
     expect(component.keyDownEvent).toHaveBeenCalled();
-  });
-  xit('should use the previous() function', () => {
-    spyOn(component, 'onPrevious');
-    expect(component.onPrevious).toHaveBeenCalled();
-  });
-  xit('should use the next() function', () => {
-    spyOn(component, 'onNext');
-    expect(component.onNext).toHaveBeenCalled();
-  });
-  xit('should use the onSelectSlider() function', () => {
-    spyOn(component, 'onSelectSlider');
-    expect(component.onSelectSlider).toHaveBeenCalled();
   });
 });

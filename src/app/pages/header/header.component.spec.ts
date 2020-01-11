@@ -1,4 +1,4 @@
-import { async, ComponentFixture, flush, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
 import { MenuService } from '../../core/services/menu.service';
@@ -11,7 +11,7 @@ describe('HeaderComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [HeaderComponent],
-      providers: [MenuService]
+      providers: [MenuService],
     }).compileComponents();
   }));
 
@@ -48,11 +48,5 @@ describe('HeaderComponent', () => {
     spyOn(component, 'onScroll');
     window.dispatchEvent(new Event('scroll'));
     expect(component.onScroll).toHaveBeenCalled();
-  });
-  xit('should use the onMenuSelected', () => {
-    const header = new HeaderComponent(menuService);
-    expect(header.menuSelected).toBe(undefined);
-    header.onMenuSelected('click', 0);
-    expect(header.menuSelected).toEqual(0);
   });
 });
