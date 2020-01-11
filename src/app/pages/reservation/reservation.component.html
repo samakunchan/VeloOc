@@ -1,0 +1,18 @@
+<!--Grid column-->
+<div class="col-md-12 mb-4">
+  <!-- Main heading -->
+  <h3 class="h3 mb-3"></h3>
+  <button class="btn btn-indigo btn-md" (click)="onCloseSidebar()">Réduire</button>
+  <app-formulaire></app-formulaire>
+</div>
+<div class="votre-selection">
+  <h3 class="text-primary">Votre sélection</h3>
+  <h4>{{ station }}</h4>
+  <p>Vélo disponible: {{ availableBikes }}</p>
+  <h4 class="text-success" *ngIf="availability === 'Bleu' || availability === 'Vert'">{{ status }}</h4>
+  <h4 class="text-warning" *ngIf="availability === 'Orange'">{{ status }}</h4>
+  <p>{{ address }}</p>
+  <p *ngIf="address2 !== 'None'">{{ address2 }}</p>
+  <p>{{ commune }}</p>
+</div>
+<!--Grid column-->

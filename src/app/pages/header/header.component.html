@@ -1,0 +1,50 @@
+<!-- Navbar -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" [ngClass]="{ 'top-nav-collapse': scrolling }">
+  <div class="container">
+    <!-- Brand -->
+    <a class="navbar-brand" href="/">
+      <strong>{{ title | titlecase }}</strong>
+    </a>
+
+    <!-- Collapse -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Left -->
+      <ul class="navbar-nav mr-auto">
+        <li *ngFor="let menu of menus; let i = index" class="nav-item" [ngClass]="{ active: menu.id === menuSelected }">
+          <a class="nav-link" href="/" (click)="onMenuSelected($event, i)" title="{{ menu.title }}"> {{ menu.title }}</a>
+        </li>
+      </ul>
+
+      <!-- Right -->
+      <ul class="navbar-nav nav-flex-icons">
+        <li class="nav-item">
+          <a href="{{ adressMalt }}" class="nav-link" target="_blank">
+            <i class="fas fa-address-card"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ adressWebsite }}" class="nav-link" target="_blank">
+            <i class="fab fa-dev"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ github }}" class="nav-link border border-light rounded" target="_blank"> <i class="fab fa-github mr-2"></i>Velooc GitHub </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Navbar -->
