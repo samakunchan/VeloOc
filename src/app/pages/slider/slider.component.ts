@@ -29,9 +29,9 @@ export class SliderComponent implements OnInit {
   }
   @HostListener('window:keydown', ['$event'])
   keyDownEvent(event) {
-    if (event.code === 'ArrowRight') {
+    if (event.code === 'ArrowRight' || event.key === 'ArrowRight') {
       this.onNext();
-    } else if (event.code === 'ArrowLeft') {
+    } else if (event.code === 'ArrowLeft' || event.key === 'ArrowLeft') {
       this.onPrevious();
     }
   }

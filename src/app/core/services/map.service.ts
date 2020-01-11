@@ -53,6 +53,31 @@ export class MapService {
       }
     });
   }
+  getAppInfos() {
+    return new Observable(observer => {
+      if (
+        sessionStorage.getItem('station') &&
+        sessionStorage.getItem('address') &&
+        sessionStorage.getItem('address2') &&
+        sessionStorage.getItem('availableBikes') &&
+        sessionStorage.getItem('status') &&
+        sessionStorage.getItem('availability') &&
+        sessionStorage.getItem('commune')) {
+        const infos = {
+          station: sessionStorage.getItem('station'),
+          address: sessionStorage.getItem('address'),
+          address2: sessionStorage.getItem('address2'),
+          availableBikes: sessionStorage.getItem('availableBikes'),
+          status: sessionStorage.getItem('status'),
+          availability: sessionStorage.getItem('availability'),
+          commune: sessionStorage.getItem('commune'),
+        };
+        observer.next(infos);
+      } else {
+        observer.error('Les données ne sont pas encore arrivées');
+      }
+    });
+  }
   getDataLyon() {
     return new Observable(observer => {
       this.http.get(this.apiUrl).subscribe(res => {

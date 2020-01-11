@@ -29,8 +29,15 @@ export class AppComponent {
   adressMalt = 'https://www.malt.fr/profile/cedricbadjah?overview=true';
   adressWebsite = 'https://my-services.samakunchan.fr';
   github = 'https://github.com/samakunchan/velooc';
-  menuState = 'in';
+  menuState = 'out';
+  sessionStorage$;
   onGetMenuState(menuState: string) {
     this.menuState = menuState;
   }
+  onGetSessionStorage(sessionStorage) {
+    this.sessionStorage$ = sessionStorage;
+  }
 }
+// TODO Rajouter le texte explicatif sous la map
+// TODO AJouter un cluster pour les markers
+// TODO Faire le responsive mobile: le toogle du menu ne marche pas par exemple

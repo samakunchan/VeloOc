@@ -12,6 +12,7 @@ export class MapComponent implements OnInit {
   forFeaturedLayerClose: any[] = [];
   feature;
   @Output() menuState = new EventEmitter<string>();
+  @Output() sessionStorage$ = new EventEmitter<any>();
   constructor(private mapService: MapService) {}
 
   ngOnInit() {
@@ -127,7 +128,7 @@ export class MapComponent implements OnInit {
     map.on('click', 'places', event => {
       this.feature = event.features[0];
       map.flyTo({ center: event.features[0].geometry.coordinates });
-      const button = '<button id="choisir' + event.features[0].properties.id + '" class="btn btn-primary w-100">Choisir</button>';
+      const button = '<button id="choisir' + event.features[0].properties.id + '" class="btn btn-primary">Choisir</button>';
       const coordinates = this.feature.geometry.coordinates.slice();
       const description = this.feature.properties.description + button;
       new mapboxgl.Popup()
@@ -139,6 +140,7 @@ export class MapComponent implements OnInit {
           .setAppInfos(this.feature.properties)
           .then(() => {
             this.menuState.emit('in');
+            this.sessionStorage$.emit(this.mapService.getAppInfos());
           })
           .catch(error => console.error(error));
       });
