@@ -62,7 +62,8 @@ export class MapService {
         sessionStorage.getItem('availableBikes') &&
         sessionStorage.getItem('status') &&
         sessionStorage.getItem('availability') &&
-        sessionStorage.getItem('commune')) {
+        sessionStorage.getItem('commune')
+      ) {
         const infos = {
           station: sessionStorage.getItem('station'),
           address: sessionStorage.getItem('address'),
