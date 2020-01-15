@@ -30,14 +30,15 @@ export class AppComponent {
   adressWebsite = 'https://my-services.samakunchan.fr';
   github = 'https://github.com/samakunchan/velooc';
   menuState = 'out';
-  sessionStorage$;
+  sessionStorageMap$;
   onGetMenuState(menuState: string) {
     this.menuState = menuState;
   }
   onGetSessionStorage(sessionStorage) {
-    this.sessionStorage$ = sessionStorage;
+    this.sessionStorageMap$ = sessionStorage;
   }
 }
+// TODO Mettre un onglet sur la sidebar pour accèder au formulaire si la réservation est en cours ou active
 // TODO Rajouter le texte explicatif sous la map
-// TODO AJouter un cluster pour les markers
+// TODO Ajouter un cluster pour les markers
 // TODO Faire le responsive mobile: le toogle du menu ne marche pas par exemple

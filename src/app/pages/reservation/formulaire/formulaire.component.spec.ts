@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormulaireComponent } from './formulaire.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StepperComponent } from '../stepper/stepper.component';
+import { CanvasComponent } from '../../canvas/canvas.component';
 
 describe('FormulaireComponent', () => {
   let component: FormulaireComponent;
@@ -10,7 +11,7 @@ describe('FormulaireComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [FormulaireComponent, StepperComponent],
+      declarations: [FormulaireComponent, StepperComponent, CanvasComponent],
       imports: [ReactiveFormsModule],
     }).compileComponents();
   }));

@@ -1,1 +1,9 @@
-<p>canvas works!</p>
+<div id="canvasContainer" style="border: solid white; height: 100%; background-color: white">
+  <canvas id="canvas"></canvas>
+</div>
+<button id="clear" class="btn btn-white">clear</button>
+<form [formGroup]="canvasForm" (ngSubmit)="onSubmit()">
+  <label for="image"></label>
+  <input type="hidden" id="image" formControlName="image" ngModel="{{ imageUrl }}" />
+  <button id="send" class="btn btn-indigo" type="submit" [disabled]="canvasForm.invalid">Reserver</button>
+</form>
