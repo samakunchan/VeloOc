@@ -11,10 +11,21 @@
   z-index: 9999;
   font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   .votre-selection {
-    position: absolute;
-    bottom: 0;
-    padding: 30px;
+    padding: 40px;
     width: 100%;
     border-top: solid;
+  }
+  .votre-reservation {
+    padding: 30px;
+    width: 100%;
+  }
+  .etiquette {
+    position: absolute;
+    top: 33px;
+    padding: 15px;
+    left: -80px;
+    background-color: #1a2580;
+    transform: rotate(-90deg);
+    cursor: pointer;
   }
 }

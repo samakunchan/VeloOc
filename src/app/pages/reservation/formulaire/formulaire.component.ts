@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class FormulaireComponent implements OnInit {
   reservationForm: FormGroup;
   stepper: string;
+  @Output() sessionStoragePersonalData$ = new EventEmitter<any>();
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
@@ -25,10 +26,14 @@ export class FormulaireComponent implements OnInit {
   onSubmit() {
     if (this.reservationForm.value.lastname && this.reservationForm.value.firstname) {
       this.stepper = 'step2';
+      sessionStorage.setItem('firstname', this.reservationForm.value.firstname);
+      sessionStorage.setItem('lastname', this.reservationForm.value.lastname);
     }
-    console.log(this.reservationForm.value.lastname);
   }
   onGetStepState(stepState: string) {
     this.stepper = stepState;
+  }
+  onGetSign(sign) {
+    this.sessionStoragePersonalData$.emit({ firstname: sessionStorage.getItem('firstname'), lastname: sessionStorage.getItem('lastname'), sign });
   }
 }

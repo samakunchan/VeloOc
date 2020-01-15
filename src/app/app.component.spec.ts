@@ -14,6 +14,7 @@ import { StepperComponent } from './pages/reservation/stepper/stepper.component'
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AboutComponent } from './pages/about/about.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -31,6 +32,7 @@ describe('AppComponent', () => {
         CarousselComponent,
         FormulaireComponent,
         StepperComponent,
+        AboutComponent
       ],
     }).compileComponents();
   }));
