@@ -1,8 +1,11 @@
 dist: trusty
 
+os: linux
+
 language: node_js
+
 node_js:
-  - '12'
+  - '12.14.1'
 
 addons:
   apt:
@@ -19,7 +22,7 @@ install:
   - npm install
 
 script:
-  - npm run test --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+  - npm run test:travis
 
 after_success:
   - npm run coverage
