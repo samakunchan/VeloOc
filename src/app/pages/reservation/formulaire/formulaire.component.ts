@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -7,12 +7,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./formulaire.component.scss'],
 })
 export class FormulaireComponent implements OnInit {
+  @Input() sessionStorageMap$;
   reservationForm: FormGroup;
   stepper: string;
+  numberbike: string;
   @Output() sessionStoragePersonalData$ = new EventEmitter<any>();
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
+    this.numberbike = sessionStorage.getItem('availableBikes');
     this.initForm();
   }
 

@@ -68,6 +68,7 @@ export class CanvasComponent implements OnInit {
   }
   onSubmit() {
     sessionStorage.setItem('signature', this.canvasForm.value.image);
+    sessionStorage.setItem('count', String(Date.now()));
     if (sessionStorage.getItem('signature')) {
       this.sessionStorageSign$.emit(sessionStorage.getItem('signature'));
     }

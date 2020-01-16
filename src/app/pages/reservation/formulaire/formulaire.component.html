@@ -9,7 +9,18 @@
       <label for="firstname" class="bmd-label-floating">Prénom</label>
       <input type="text" class="form-control" id="firstname" formControlName="firstname" ngModel="Cédric" />
     </div>
-    <button type="submit" class="btn btn-indigo btn-md" [disabled]="reservationForm.invalid">Continuer</button>
+    <div *ngIf="sessionStorageMap$ | async as info">
+      <button
+        *ngIf="info.availability === 'Bleu' || info.availability === 'Vert'"
+        type="submit"
+        class="btn btn-indigo btn-md"
+        [disabled]="reservationForm.invalid"
+      >
+        Continuer
+      </button>
+      <button *ngIf="info.availability === 'Orange'" class="btn btn-warning" disabled>La station est vide</button>
+      <small *ngIf="info.availability === 'Orange'" class="text-warning">Tout les vélos ont été utilisés.</small>
+    </div>
   </form>
 </ng-container>
 <ng-container *ngIf="stepper === 'step2'">

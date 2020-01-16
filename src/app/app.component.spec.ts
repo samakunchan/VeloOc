@@ -6,7 +6,6 @@ import { SliderComponent } from './pages/slider/slider.component';
 import { MapComponent } from './pages/map/map.component';
 import { ReservationComponent } from './pages/reservation/reservation.component';
 import { CanvasComponent } from './pages/canvas/canvas.component';
-import { CompteurComponent } from './pages/compteur/compteur.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { CarousselComponent } from './pages/slider/caroussel/caroussel.component';
 import { FormulaireComponent } from './pages/reservation/formulaire/formulaire.component';
@@ -15,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutComponent } from './pages/about/about.component';
+import { CountdownComponent } from './pages/countdown/countdown.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -27,12 +27,12 @@ describe('AppComponent', () => {
         MapComponent,
         ReservationComponent,
         CanvasComponent,
-        CompteurComponent,
         FooterComponent,
         CarousselComponent,
         FormulaireComponent,
         StepperComponent,
-        AboutComponent
+        AboutComponent,
+        CountdownComponent,
       ],
     }).compileComponents();
   }));
