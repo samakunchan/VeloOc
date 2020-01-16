@@ -13,6 +13,7 @@ export class MapComponent implements OnInit {
   feature;
   @Output() menuState = new EventEmitter<string>();
   @Output() sessionStorageMap$ = new EventEmitter<any>();
+  @Output() alert = new EventEmitter<boolean>();
   constructor(private mapService: MapService) {}
 
   ngOnInit() {
@@ -137,6 +138,10 @@ export class MapComponent implements OnInit {
         .setHTML(description)
         .addTo(map);
       document.getElementById('choisir' + event.features[0].properties.id).addEventListener('click', () => {
+        if (sessionStorage.getItem('count') !== null) {
+          this.alert.emit(true);
+          return;
+        }
         this.mapService
           .setAppInfos(this.feature.properties)
           .then(() => {
