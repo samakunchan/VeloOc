@@ -20,12 +20,17 @@
     width: 100%;
   }
   .etiquette {
-    position: absolute;
-    top: 33px;
+    position: fixed;
+    top: 60%;
     padding: 15px;
     left: -80px;
     background-color: #1a2580;
     transform: rotate(-90deg);
     cursor: pointer;
+  }
+  .sidebar-height {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-height: 100%;
   }
 }

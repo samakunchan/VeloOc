@@ -7,6 +7,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class ReservationComponent implements OnInit {
   @Input() sessionStorageMap$;
+  @Input() remainReservation;
+  @Input() alert;
   @Output() menuState = new EventEmitter<string>();
   etiquette: boolean;
   reservationComplete: boolean;
@@ -15,6 +17,15 @@ export class ReservationComponent implements OnInit {
   constructor() {}
   ngOnInit() {
     this.reservationComplete = false;
+    if (this.remainReservation) {
+      this.etiquette = true;
+      this.personalData = {
+        firstname: this.remainReservation.firstname,
+        lastname: this.remainReservation.lastname,
+        sign: this.remainReservation.sign,
+      };
+      this.reservationComplete = true;
+    }
   }
   onCloseSidebar() {
     this.menuState.emit('out');
@@ -23,12 +34,18 @@ export class ReservationComponent implements OnInit {
   onOpenSidebar() {
     this.menuState.emit('in');
     this.etiquette = false;
-    // TODO Emettre par défaut etiquette true si le compteur est actif
   }
   onGetPersonalData(data) {
     if (data) {
       this.reservationComplete = true;
       this.personalData = data;
     }
+  }
+  onGetCountEvent(state) {
+    this.reservationComplete = state;
+  }
+  onCancelRes() {
+    sessionStorage.clear();
+    window.location.reload();
   }
 }

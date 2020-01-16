@@ -1,0 +1,6 @@
+<ng-container *ngIf="countDownState; else expired">
+  <p class="text-warning">Durée de la réservation: {{ displayTime }}</p>
+</ng-container>
+<ng-template #expired>
+  <p>Votre réservation à éxpirer.</p>
+</ng-template>

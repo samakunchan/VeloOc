@@ -8,3 +8,72 @@
   transition: background-color 1000ms linear;
   z-index: 100;
 }
+.modal-window {
+  position: fixed;
+  background-color: #00000059;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  transition: all 0.3s;
+  &:target {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  & > div {
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2em;
+    background: #ffffff;
+  }
+  .modal-visible {
+    visibility: visible;
+    opacity: 1;
+  }
+  .modal-hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.modal-close {
+  color: #aaa;
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    color: black;
+  }
+}
+a {
+  color: inherit;
+}
+
+.modal-window div:not(:last-of-type) {
+  margin-bottom: 15px;
+}
+
+small {
+  color: #aaa;
+}
+
+.btn {
+  background-color: #fff;
+  padding: 1em 1.5em;
+  border-radius: 3px;
+  text-decoration: none;
+  i {
+    padding-right: 0.3em;
+  }
+}

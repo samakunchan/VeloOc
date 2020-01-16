@@ -10,7 +10,7 @@ describe('CanvasComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CanvasComponent],
-      imports:[ReactiveFormsModule]
+      imports: [ReactiveFormsModule],
     }).compileComponents();
   }));
 

@@ -1,55 +1,83 @@
 <ng-container *ngIf="!reservationComplete; else complete">
-  <nav class="sidebar-reservation">
+  <nav class="sidebar-reservation sidebar-height">
     <!--Grid column-->
     <section class="col-md-12 mb-4">
       <!-- Main heading -->
       <h3 class="h3 mb-3"></h3>
       <button class="btn btn-indigo btn-md" (click)="onCloseSidebar()">Réduire</button>
-      <app-formulaire (sessionStoragePersonalData$)="onGetPersonalData($event)"></app-formulaire>
+      <app-formulaire (sessionStoragePersonalData$)="onGetPersonalData($event)" [sessionStorageMap$]="sessionStorageMap$"></app-formulaire>
     </section>
     <section class="position-relative">
-      <div class="votre-selection" *ngIf="sessionStorageMap$ | async as info">
-        <h3 class="text-primary">Votre sélection</h3>
-        <h4>{{ info.station }}</h4>
-        <p>Vélos disponibles: {{ info.availableBikes }}</p>
-        <h4 class="text-success" *ngIf="info.availability === 'Bleu' || info.availability === 'Vert'">{{ info.status }}</h4>
-        <h4 class="text-warning" *ngIf="info.availability === 'Orange'">{{ info.status }}</h4>
-        <p>{{ info.address }}</p>
-        <p *ngIf="info.address2 !== 'None'">{{ info.address2 }}</p>
-        <p>{{ info.commune }}</p>
-      </div>
+      <ng-container *ngIf="sessionStorageMap$ | async as info; else selection">
+        <div class="votre-selection">
+          <h3 class="text-primary">Votre sélection</h3>
+          <h4>{{ info.station }}</h4>
+          <p>Vélos disponibles: {{ info.availableBikes }}</p>
+          <h4 class="text-success" *ngIf="info.availability === 'Bleu' || info.availability === 'Vert'">OUVERT</h4>
+          <h4 class="text-warning" *ngIf="info.availability === 'Orange'">VIDE</h4>
+          <p>{{ info.address }}</p>
+          <p *ngIf="info.address2 !== 'None'">{{ info.address2 }}</p>
+          <p>{{ info.commune }}</p>
+        </div>
+      </ng-container>
+      <ng-template #selection>
+        <div class="votre-selection">
+          <h3 class="text-primary">Veuillez sélectionner une station.</h3>
+        </div>
+      </ng-template>
+
       <div class="bg-blue etiquette" *ngIf="etiquette" (click)="onOpenSidebar()">Réservation</div>
     </section>
     <!--Grid column-->
   </nav>
 </ng-container>
 <ng-template #complete>
-  <nav class="sidebar-reservation">
+  <nav class="sidebar-reservation sidebar-height">
     <!--Grid column-->
     <section class="col-md-12 mb-4">
       <!-- Main heading -->
       <h3 class="h3 mb-3"></h3>
       <button class="btn btn-indigo btn-md" (click)="onCloseSidebar()">Réduire</button>
-      <h3 class="h3 mb-3">Titulaire de la réservation</h3>
+      <h3 class="h3 mb-1">Titulaire de la réservation</h3>
       <div class="votre-reservation">
         <h4>Prénom: {{ personalData.firstname }}</h4>
         <h4>Nom: {{ personalData.lastname }}</h4>
         <div class="bg-white">
-          <img src="{{ personalData.sign }}" alt="Signature du titulaire">
+          <img src="{{ personalData.sign }}" alt="Signature du titulaire" />
+        </div>
+        <div class="p-2 mt-2 text-center">
+          <app-countdown (countEvent)="onGetCountEvent($event)"></app-countdown>
+        </div>
+        <div class="p-2 mt-2 text-center">
+          <button class="btn btn-danger" (click)="onCancelRes()">Annuler la réservation</button>
         </div>
       </div>
     </section>
     <section class="position-relative">
-      <div class="votre-selection" *ngIf="sessionStorageMap$ | async as info">
-        <h3 class="text-primary">Votre sélection</h3>
-        <h4>{{ info.station }}</h4>
-        <p>Vélos disponibles: {{ info.availableBikes }}</p>
-        <h4 class="text-success" *ngIf="info.availability === 'Bleu' || info.availability === 'Vert'">{{ info.status }}</h4>
-        <h4 class="text-warning" *ngIf="info.availability === 'Orange'">{{ info.status }}</h4>
-        <p>{{ info.address }}</p>
-        <p *ngIf="info.address2 !== 'None'">{{ info.address2 }}</p>
-        <p>{{ info.commune }}</p>
-      </div>
+      <ng-container *ngIf="sessionStorageMap$; else sessionStorageMap">
+        <div class="votre-selection" *ngIf="sessionStorageMap$ | async as info">
+          <h3 class="text-primary">Votre sélection</h3>
+          <h4>{{ info.station }}</h4>
+          <p>Vélos disponibles: {{ info.availableBikes }}</p>
+          <h4 class="text-success" *ngIf="info.availability === 'Bleu' || info.availability === 'Vert'">{{ info.status }}</h4>
+          <h4 class="text-warning" *ngIf="info.availability === 'Orange'">{{ info.status }}</h4>
+          <p>{{ info.address }}</p>
+          <p *ngIf="info.address2 !== 'None'">{{ info.address2 }}</p>
+          <p>{{ info.commune }}</p>
+        </div>
+      </ng-container>
+      <ng-template #sessionStorageMap>
+        <div class="votre-selection" *ngIf="remainReservation">
+          <h3 class="text-primary">Votre vélo vous attends.</h3>
+          <h4>{{ remainReservation.station }}</h4>
+          <p>Vélos disponibles: {{ remainReservation.availableBikes }}</p>
+          <h4 class="text-success" *ngIf="remainReservation.availability === 'Bleu' || remainReservation.availability === 'Vert'">OUVERT</h4>
+          <h4 class="text-warning" *ngIf="remainReservation.availability === 'Orange'">{{ remainReservation.status }}</h4>
+          <p>{{ remainReservation.address }}</p>
+          <p *ngIf="remainReservation.address2 !== 'None'">{{ remainReservation.address2 }}</p>
+          <p>{{ remainReservation.commune }}</p>
+        </div>
+      </ng-template>
       <div class="bg-blue etiquette" *ngIf="etiquette" (click)="onOpenSidebar()">Réservation</div>
     </section>
     <!--Grid column-->

@@ -35,6 +35,7 @@ export class MapService {
   }
   setAppInfos(prop) {
     return new Promise((resolve, reject) => {
+      sessionStorage.clear();
       sessionStorage.setItem('station', prop.name);
       sessionStorage.setItem('address', prop.address);
       sessionStorage.setItem('address2', prop.address2);
@@ -72,10 +73,9 @@ export class MapService {
           status: sessionStorage.getItem('status'),
           availability: sessionStorage.getItem('availability'),
           commune: sessionStorage.getItem('commune'),
+          reservationComplete: false,
         };
         observer.next(infos);
-      } else {
-        observer.error('Les données ne sont pas encore arrivées');
       }
     });
   }
