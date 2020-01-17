@@ -6,4 +6,4 @@
 
 Projet de refonte P3 OC
 -
-![40% center](src\assets\img\velooc.png)
+![40% center](https://github.com/samakunchan/velooc/blob/master/src/assets/img/velooc.png)
