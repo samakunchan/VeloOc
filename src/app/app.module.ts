@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StepperComponent } from './pages/reservation/stepper/stepper.component';
 import { AboutComponent } from './pages/about/about.component';
 import { CountdownComponent } from './pages/countdown/countdown.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { CountdownComponent } from './pages/countdown/countdown.component';
     StepperComponent,
     AboutComponent,
     CountdownComponent,
+    TestComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, MDBBootstrapModule.forRoot(), HttpClientModule, BrowserAnimationsModule, ReactiveFormsModule],
   providers: [],
