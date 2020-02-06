@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CanvasComponent } from './canvas.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 describe('CanvasComponent', () => {
   let component: CanvasComponent;
@@ -10,7 +9,6 @@ describe('CanvasComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CanvasComponent],
-      imports: [ReactiveFormsModule],
     }).compileComponents();
   }));
 
