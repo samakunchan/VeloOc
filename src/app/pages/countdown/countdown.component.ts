@@ -14,7 +14,7 @@ export class CountdownComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.minutes = 0.5;
+    this.minutes = 20;
     this.minInMs = this.minutes * 60 * 1000;
     this.timer();
     this.countDownState = false;

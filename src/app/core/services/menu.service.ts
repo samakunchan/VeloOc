@@ -12,7 +12,7 @@ export class MenuService {
     this.menus = [
       {
         id: 0,
-        title: 'Tutorial Slide',
+        title: 'Acceuil',
       },
       {
         id: 1,
@@ -20,7 +20,7 @@ export class MenuService {
       },
       {
         id: 2,
-        title: 'About App',
+        title: 'A propos',
       },
     ];
   }
